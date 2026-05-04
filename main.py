@@ -45,4 +45,32 @@ def ingreso_datos():
         
         except ValueError:
             print("Error al ingresar los datos, vuelve a intentarlo")
-    
+
+def menu():
+    while True:
+        print("----DEVOLUCION DE CAMBIOS----")
+        print("1.  DEVOLVER CAMBIO          ")
+        print("2.  SALIR DEL PROGRAMA       ")
+        
+        opcion_usuario = input("Ingrese una opcion:\t")
+        
+        match opcion_usuario:
+            case "1":
+                monto_pagado, costo_producto = ingreso_datos()
+                desglose, monto_devolver = calcular_cambio(monto_pagado=monto_pagado,costo_producto=costo_producto)
+                
+                if desglose is None:
+                    print("El monto pagado es insuficiente")              
+                
+                else:
+                    mostrar_resultados_cambio(desglose,monto_devolver)
+                    guardar_cambios(monto_pagado,costo_producto,monto_devolver,desglose)  
+            
+            case "2":
+                print("Saliendo del programa")
+                break
+            
+            case _:
+                print("Opcion invalida, vuelve a internarlo\n")
+
+menu()
