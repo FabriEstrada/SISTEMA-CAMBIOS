@@ -35,4 +35,14 @@ def mostrar_resultados_cambio(desglose,monto_devolver):
     
     for dinero,cantidad in desglose.items():
         print(f"{dinero}:{cantidad}")
+
+def ingreso_datos():
+    while True:
+        try:
+            monto_pagado = float(input("Ingrese el monto que pagarás:\t"))
+            costo_producto = float(input("Introduce el costo del producto:\t"))
+            return monto_pagado, costo_producto
+        
+        except ValueError:
+            print("Error al ingresar los datos, vuelve a intentarlo")
     
