@@ -27,3 +27,12 @@ def guardar_cambios(monto_pagado,costo_producto, cambio, desglose):
             archivo.write(f"{dinero}:{cantidad}\n")
         
         archivo.write("\n")
+
+def mostrar_resultados_cambio(desglose,monto_devolver):
+    print("----CAMBIO A DEVOLVER----")
+    print(f"TOTAL: {monto_devolver}")
+    print("CAMBIO: ")
+    
+    for dinero,cantidad in desglose.items():
+        print(f"{dinero}:{cantidad}")
+    
