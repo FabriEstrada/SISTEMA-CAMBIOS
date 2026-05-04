@@ -14,3 +14,16 @@ def calcular_cambio(monto_pagado,costo_producto):
             desglose[dinero] = dinero_aceptado
     
     return desglose, monto_devolver
+
+def guardar_cambios(monto_pagado,costo_producto, cambio, desglose):
+    with open('Devolucion_cambios.txt', 'a', encoding='utf-8') as archivo:
+        archivo.write("-----TRANSACCIONES-----\n")
+        archivo.write(f"MONTO PAGADO: {monto_pagado}\n")
+        archivo.write(f"COSTO PRODUCTO: {costo_producto}\n")
+        archivo.write(f"TOTAL DEVOLVER: {cambio}\n")
+        archivo.write("DESGLOSE CAMBIO:\n")
+        
+        for dinero,cantidad in desglose.items():
+            archivo.write(f"{dinero}:{cantidad}\n")
+        
+        archivo.write("\n")
